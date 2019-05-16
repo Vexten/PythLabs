@@ -1,6 +1,6 @@
 import socket, datetime, locale
 
-locale.setlocale(locale.LC_ALL, "ru_RU")
+locale.setlocale(locale.LC_ALL, "")
 
 io = socket.socket()
 io.bind(("",322))
