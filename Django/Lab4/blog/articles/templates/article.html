@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Статья {{post.id}}</title>
+</head>
+<body class="article">
+	<div class="posts-archive">
+		<div class="one-post">
+			
+ 			<h2 class="post-title">{{ post.title }}</h2>
+ 			<p>id: {{post.id}}</p>
+ 			<div class="article-info">
+ 				<div class="article-author">{{ post.author.username }}</div>
+ 				<div class="article-created-date">{{ post.created_date }}</div>
+ 			</div>
+ 			<p class="article-text">{{ post.get_excerpt }}</p>
+		</div>
+	</div>
+</body>
+</html>

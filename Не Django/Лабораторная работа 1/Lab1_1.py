@@ -19,3 +19,4 @@ while True:
         break
     except ZeroDivisionError:
         print("В выражении есть деление на ноль. Введите другие числа.")
+input("Нажмите ENTER чтобы выйти")

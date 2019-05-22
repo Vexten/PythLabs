@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" href="{{ STATIC_URL }}/static/style.css"></link>
 	<title>Архив всех статей</title>
 </head>
 <body>
-	<div class="header">
+	<div class="header" style="margin: auto; width: 500px; height: auto;">
 		<img src="{{ STATIC_URL }}/static/img.jpg"></img>
 	</div>
-	<div class="archive">
+	<div class="archive" style="margin: auto; width: 50%">
 		{% for post in posts%}
 		<div class="one-post">
 		   <h2 class="post-title">{{ post.title }}</h2>
 		      <div class="article-info">
-		      	<div class="article-author">{{ post.author.username }}</div>
-		      	<div class="article-created-date">{{ post.created_date }}</div>
+		      	<div class="article-author" style="font-size: 16px">{{ post.author.username }}</div>
+		      	<div class="article-created-date" style="font-size: 14px">{{ post.created_date }}</div>
 		      </div>
-		      <p class="article-text">{{ post.get_excerpt }}</p>
+		      <p class="article-text" style="font-size: 18px">{{ post.get_excerpt }}</p>
 		  </div>
 		{% endfor %}
 	</div>
