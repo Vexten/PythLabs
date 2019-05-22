@@ -89,32 +89,40 @@ def t4():
         print("Готово!\n\n")
 
 # init
+ans = ""
 exc = False
 a = True
 b = 0
-try:
-    f = open("products.txt","r")
-    pr = []
-    for line in f:
-        line = line.split(";")
-        pr.append([int(line[0]),line[1],int(line[2]),int(line[3])])
-    while a:
-        for i in range(len(pr) - 1):
-            if pr[i][1] > pr[i + 1][1]:
-                temp = pr[i]
-                pr[i] = pr[i + 1]
-                pr[i + 1] = temp
-            else:
-                b += 1
-        if b == 3:
-            a = False
-        b = 0
-except FileNotFoundError:
-    print("Файл products.txt не найден в папке с программой,\nфункции 2-4 недоступны\n\n")
-    exc = True
-except ValueError:
-    print("Файл products.txt заполнен не правильно,\nфункции 2-4 недоступны\n\n")
-    exc = True
+while True:
+    try:
+        fn = input("Введите имя файла (с расширением): ")
+        if ".txt" not in fn: raise ValueError
+        f = open(fn,"r")
+        pr = []
+        for line in f:
+            line = line.split(";")
+            pr.append([int(line[0]),line[1],int(line[2]),int(line[3])])
+        while a:
+            for i in range(len(pr) - 1):
+                if pr[i][1] > pr[i + 1][1]:
+                    temp = pr[i]
+                    pr[i] = pr[i + 1]
+                    pr[i + 1] = temp
+                else:
+                    b += 1
+            if b == 3:
+                a = False
+            b = 0
+        break
+    except (FileNotFoundError, ValueError):
+        print("Файл не найден в папке с программой или заполнен неправильно,\nфункции 2-4 будут недоступны при продолжении\n\n")
+        while True:
+            ans = input("Продолжить? (Y/N): ")
+            ans = ans.upper()
+            if (ans == "Y") or (ans == "N"): break
+        if ans == "Y":
+            exc = True
+            break
 opt = {1: t1,
        2: t2,
        3: t3,
