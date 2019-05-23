@@ -15,6 +15,7 @@ def t1():
         except IndexError:
             break
     sso = sss.split()
+    soo = ""
     for i in range(len(sso)):
         if len(sso[i]) > 5:
             soo += sso[i] + " "
@@ -43,7 +44,7 @@ def t3():
             s[i] = s[i].replace("_","")
     print("          {}               {}               {}".format(s[0],s[2],s[1]))
     for i in range(n):
-        print("{}     {}          {}".format(s[nu],s[nu + 2],s[nu + 1]))
+        if "Петров" in s[nu]: print("{}     {}          {}".format(s[nu],s[nu + 2],s[nu + 1]))
         nu += 3
 
 def t4():
@@ -72,18 +73,18 @@ def t4():
     print("Измененный список:")
     print(lis)
 
-while True:
-    try:
-        tn = int(input("Укажите номер задания: "))
-        if (tn < 1) or (tn > 4):
-            raise ValueError
-        print("\n\n")
-        break
-    except ValueError:
-        print("Введен неверный номер.")
 task = {1: t1,
         2: t2,
         3: t3,
         4: t4,
 }
-task[tn]()
+while True:
+    try:
+        tn = int(input("Укажите номер задания (0 - выход): "))
+        if (tn < 0) or (tn > 4):
+            raise ValueError
+        print("\n\n")
+        if tn == 0: break
+        task[tn]()
+    except ValueError:
+        print("Введен неверный номер.")
