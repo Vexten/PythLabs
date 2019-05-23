@@ -37,7 +37,8 @@ def t3():
     for i in range(len(pr)):
         if pr[i][0] in idl:
             pr[i][3] += add
-    print("Готово!\n\n")
+    print("Готово!\n")
+    t2()
 
 def t4():
     a = True
